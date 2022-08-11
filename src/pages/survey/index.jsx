@@ -23,7 +23,7 @@ export const Survey = () => {
   // to handle the visibility of popup components
   const [isVisible, setIsVisible] = useState({
     error: false,
-    success: false
+    success: false,
   });
 
   // dynamic message content depending on the error
@@ -36,7 +36,7 @@ export const Survey = () => {
     date: null,
     answers: {},
     attachments: {},
-    username: ""
+    username: "",
   });
 
   // to store the pushed submit tests
@@ -58,7 +58,7 @@ export const Survey = () => {
     let getData = window.setTimeout(() => {
       setReport((prevState) => ({
         ...prevState,
-        loading: false
+        loading: false,
       }));
     }, 3000);
     return () => window.clearTimeout(getData);
@@ -70,7 +70,7 @@ export const Survey = () => {
     if (storage && Object.keys(storage).length === resp.questions.length) {
       setReport((prevState) => ({
         ...prevState,
-        loading: true
+        loading: true,
       }));
       // push the report and post it to the test array of reports
       setAllReports((prevState) => [
@@ -80,8 +80,8 @@ export const Survey = () => {
           username: "testuser",
           id: +new Date(),
           date: new Date().toLocaleString(),
-          answers: storage
-        }
+          answers: storage,
+        },
       ]);
       setStorage({});
     } else {
@@ -98,11 +98,10 @@ export const Survey = () => {
       date: null,
       answers: {},
       attachments: {},
-      username: ""
+      username: "",
     }));
   };
 
-  console.log(isVisible);
   return !report.loading && resp.questions ? (
     <SurveyForm>
       <Title> {resp.label} </Title>
