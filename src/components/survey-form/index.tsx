@@ -1,5 +1,9 @@
-export const SurveyForm = ({ children }) => {
-  const handleOnSubmit = (e) => {
+import React from 'react';
+
+export const SurveyForm = ({ children }: {
+  children: React.ReactNode[];
+}) => {
+  const handleOnSubmit = (e: any) => {
     e.preventDefault();
   };
   return (
@@ -10,7 +14,7 @@ export const SurveyForm = ({ children }) => {
         flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
-        minHeight: "100%"
+        minHeight: "100%",
       }}
       onSubmit={handleOnSubmit}
     >

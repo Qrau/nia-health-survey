@@ -1,4 +1,6 @@
-export const Wrapper = ({ children }) => {
+import React from 'react';
+
+export const Wrapper = ({ children }: { children: React.ReactNode[] }) => {
   return (
     <div
       style={{
@@ -6,7 +8,7 @@ export const Wrapper = ({ children }) => {
         flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: "100%"
+        height: "100%",
       }}
     >
       {children}

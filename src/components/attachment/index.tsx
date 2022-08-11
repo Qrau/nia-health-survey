@@ -1,22 +1,30 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { colors } from "..";
+import { Report } from "../../model";
 import "./styles.css";
 // import axios from "axios";
 
-export const Attachment = ({ report, setReport, question_id, checkMark }) => {
+interface Props {
+  report: Report,
+  setReport: Function,
+  question_id: string,
+  checkMark: React.ReactNode,
+}
+
+export const Attachment = ({ report, setReport, question_id, checkMark }: Props) => {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("");
 
-  const saveFile = (e) => {
+  const saveFile = (e: any) => {
     setFile(e.target.files);
     setFileName(e.target.files[0].name);
-    setReport((prevStates) => ({
+    setReport((prevStates: any) => ({
       ...prevStates,
       attachments: { ...prevStates.attachments, [question_id]: e.target.files }
     }));
   };
 
-  const uploadFile = async (e) => {
+  const uploadFile = async (e: any) => {
     console.log(file);
     // const formData = new FormData();
     // formData.append("file", file);
@@ -40,7 +48,7 @@ export const Attachment = ({ report, setReport, question_id, checkMark }) => {
   );
 };
 
-const styles = {
+const styles: any = {
   main: {
     marginTop: "1em"
   },

@@ -1,6 +1,7 @@
+import { MouseEventHandler } from "react";
 import { colors } from "..";
 
-export const Submit = ({ onClick }) => {
+export const Submit = ({ onClick }: { onClick: MouseEventHandler<HTMLButtonElement> }) => {
   return (
     <button
       style={{

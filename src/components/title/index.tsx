@@ -1,9 +1,9 @@
 import { colors } from "..";
 
-export const Title = ({ children }) => {
+export const Title = ({ title }: { title: string }) => {
   return (
     <h1 data-testid="title" style={styles.h1}>
-      {children}
+      {title}
     </h1>
   );
 };

@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
+import { ApiResp } from "../model";
 
 // simulate api call to receive survey data
-export const useApiResp = (data) => {
-  const [resp, setResp] = useState([]);
+export const useApiResp = (data: any) => {
+  const [resp, setResp] = useState<ApiResp>({
+    label: "",
+    status: "",
+    start_date: null,
+    end_date: null,
+    questions: [],
+  });
 
   useEffect(() => {
     let getData = window.setTimeout(() => {
@@ -11,5 +18,5 @@ export const useApiResp = (data) => {
     return () => window.clearTimeout(getData);
   }, []);
 
-  return [resp];
+  return { resp };
 };
