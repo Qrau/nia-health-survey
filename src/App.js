@@ -7,7 +7,7 @@ import "./styles.css";
 const routesArray = [
   { label: "Error", path: "*", element: <p> not found... </p> },
   { label: "Home", path: "/", element: <Home /> },
-  { label: "Survey", path: "/survey", element: <Survey /> }
+  { label: "Survey", path: "/survey", element: <Survey /> },
 ];
 
 export default function App() {

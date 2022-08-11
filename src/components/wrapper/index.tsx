@@ -1,4 +1,8 @@
-export const Wrapper = ({ children }) => {
+interface Props {
+  children: any;
+}
+
+export const Wrapper = ({ children }: Props) => {
   return (
     <div
       style={{
@@ -6,7 +10,7 @@ export const Wrapper = ({ children }) => {
         flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: "100%"
+        height: "100%",
       }}
     >
       {children}

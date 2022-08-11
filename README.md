@@ -11,3 +11,7 @@ React App
     "react-scripts": "4.0.0"
   }
 ```
+
+### remove tsconfig.json && react-scripts start
+
+fix bug `appTsConfig.compilerOptions[option] = value;`

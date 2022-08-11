@@ -10,11 +10,11 @@ import { Submit } from "../../components/submit";
 import { Wrapper } from "../../components/wrapper";
 import { CheckMark } from "../../components/check-mark";
 import { ErrorPopup } from "../../components/error-popup";
-import useLocalStorage from "../../hooks/use-local-storage";
 import { SuccessPopup } from "../../components/success-popup";
 import { useSurveyReport } from "./../../hooks/use-survey-report";
 import { useApiResp } from "./../../hooks/use-api-resp";
 import { handleSurveySubmit } from "./../../hooks/handle-survey-submit";
+import useLocalStorage from "../../hooks/use-local-storage";
 
 export const Survey = () => {
   const [storage, setStorage] = useLocalStorage({});
@@ -41,7 +41,7 @@ export const Survey = () => {
 
   return !report.loading && resp.questions ? (
     <SurveyForm>
-      <Title> {resp.label} </Title>
+      <Title title={resp.label} />
       {resp.questions.map((e) => (
         <Wrapper key={e.id}>
           <Question question={e.question} storage={storage} />

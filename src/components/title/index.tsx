@@ -1,9 +1,13 @@
 import { colors } from "..";
 
-export const Title = ({ children }) => {
+interface Props {
+  title: string
+}
+
+export const Title = ({ title }: Props) => {
   return (
     <h1 data-testid="title" style={styles.h1}>
-      {children}
+      {title}
     </h1>
   );
 };
