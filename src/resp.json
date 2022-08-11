@@ -1,0 +1,20 @@
+{
+  "label": "Sleep and Skin conditions Survey",
+  "status": "online",
+  "start_date": "",
+  "end_date": "",
+  "questions": [
+    {
+      "id": 1,
+      "question": "How was your sleep last night ?",
+      "type": "flare_up",
+      "possible_answers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    },
+    {
+      "id": 2,
+      "question": "How good is your skin condition ?",
+      "type": "skin_health",
+      "possible_answers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
+  ]
+}
