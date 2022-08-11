@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
+import { Report } from "../model";
 
-export const useSurveyReport = (setIsVisible) => {
-  const [report, setReport] = useState({
+export const useSurveyReport = (setIsVisible: any) => {
+  const [report, setReport] = useState<Report>({
     id: null,
     loading: false,
     date: null,
-    answers: {},
+    answers: [],
     attachments: {},
     username: "",
   });
 
   useEffect(() => {
-    let getData;
+    let getData: any;
     if (report.loading) {
-      setIsVisible((prevState) => ({ ...prevState, success: true }));
+      setIsVisible((prevState: any) => ({ ...prevState, success: true }));
       getData = window.setTimeout(() => {
         setReport((prevState) => ({
           ...prevState,
@@ -24,5 +25,6 @@ export const useSurveyReport = (setIsVisible) => {
     return () => window.clearTimeout(getData);
   }, [report.loading]);
 
-  return [report, setReport];
+  // return [report, setReport];
+  return { report, setReport };
 };

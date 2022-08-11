@@ -1,6 +1,6 @@
 import { colors } from "..";
 interface Props {
-  possible_answers: any;
+  possible_answers: number[];
   question_id: string;
   storage: any;
   setStorage: any;
@@ -23,7 +23,7 @@ export const Answer = ({
     }));
   };
 
-  let borderColor = storage?.[question_id]?.score
+  const borderColor = storage?.[question_id]?.score
     ? colors.success
     : colors.orange;
 
@@ -34,7 +34,7 @@ export const Answer = ({
         border: `1px solid ${borderColor}`,
       }}
     >
-      {possible_answers.map((o: any) => (
+      {possible_answers.map((o: number) => (
         <label key={o} style={styles.label}>
           <input
             id={question_id}

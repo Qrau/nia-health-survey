@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { colors } from "..";
 
-export const SuccessPopup = ({ setIsVisible }) => {
+export const SuccessPopup = ({ setIsVisible }: { setIsVisible: Function }) => {
   const handleClose = () => {
-    setIsVisible((prevStates) => ({ ...prevStates, success: false }));
+    setIsVisible((prevStates: any) => ({ ...prevStates, success: false }));
   };
 
   const successText =
@@ -27,7 +27,7 @@ export const SuccessPopup = ({ setIsVisible }) => {
   );
 };
 
-const styles = {
+const styles: any = {
   layout: {
     display: "flex",
     flexDirection: "column",

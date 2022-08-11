@@ -1,8 +1,6 @@
-interface Props {
-  children: any;
-}
+import React from 'react';
 
-export const Wrapper = ({ children }: Props) => {
+export const Wrapper = ({ children }: { children: React.ReactNode[] }) => {
   return (
     <div
       style={{

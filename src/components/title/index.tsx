@@ -1,10 +1,6 @@
 import { colors } from "..";
 
-interface Props {
-  title: string
-}
-
-export const Title = ({ title }: Props) => {
+export const Title = ({ title }: { title: string }) => {
   return (
     <h1 data-testid="title" style={styles.h1}>
       {title}

@@ -1,16 +1,21 @@
 import { colors } from "..";
 
-export const ErrorPopup = ({ message, setIsVisible }) => {
+interface Props {
+  message: string;
+  setIsVisible: any;
+}
+
+export const ErrorPopup = ({ message, setIsVisible }: Props) => {
   const handleClose = () => {
-    setIsVisible((prevStates) => ({ ...prevStates, error: false }));
+    setIsVisible((prevStates: any) => ({ ...prevStates, error: false }));
   };
   return (
     <div onClick={handleClose} style={styles.layout}>
-      <div onClick={(e) => e.stopPropagation()} style={styles.card}>
+      <div onClick={(e: any) => e.stopPropagation()} style={styles.card}>
         <h2 style={styles.h2}> "Oops, Something Went Wrong" </h2>
         <p style={styles.p}>
           {message ||
-            "undefined error, please contact the suppor and they will help :)"}{" "}
+            "undefined error, please contact the support and they will help :)"}
         </p>
         <button onClick={handleClose} style={styles.button}>
           close
@@ -20,7 +25,7 @@ export const ErrorPopup = ({ message, setIsVisible }) => {
   );
 };
 
-const styles = {
+const styles: any = {
   layout: {
     display: "flex",
     flexDirection: "column",
@@ -30,7 +35,7 @@ const styles = {
     position: "fixed",
     background: "rgb(255,255,255,0.8)",
     top: 0,
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   card: {
     display: "flex",
@@ -42,14 +47,14 @@ const styles = {
     margin: "auto",
     border: "1px solid #ccc",
     borderRadius: "14px",
-    background: "white"
+    background: "white",
   },
   h2: { padding: "1em" },
   p: { padding: "0 2em" },
   wrapper: {
     display: "flex",
     justifyContent: "space-evenly",
-    marginBottom: "3em"
+    marginBottom: "3em",
   },
   button: {
     color: "#33FFFF",
@@ -58,6 +63,6 @@ const styles = {
     border: "0",
     fontSize: ".9em",
     padding: "1em 2em",
-    margin: "0 auto"
-  }
+    margin: "0 auto",
+  },
 };

@@ -15,3 +15,4 @@ React App
 ### remove tsconfig.json && react-scripts start
 
 fix bug `appTsConfig.compilerOptions[option] = value;`
+related link [gitHub issue](https://github.com/facebook/create-react-app/issues/10110)

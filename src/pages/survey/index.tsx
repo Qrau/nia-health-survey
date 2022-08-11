@@ -11,18 +11,19 @@ import { Wrapper } from "../../components/wrapper";
 import { CheckMark } from "../../components/check-mark";
 import { ErrorPopup } from "../../components/error-popup";
 import { SuccessPopup } from "../../components/success-popup";
-import { useSurveyReport } from "./../../hooks/use-survey-report";
-import { useApiResp } from "./../../hooks/use-api-resp";
-import { handleSurveySubmit } from "./../../hooks/handle-survey-submit";
+import { useSurveyReport } from "../../hooks/use-survey-report";
+import { useApiResp } from "../../hooks/use-api-resp";
+import { handleSurveySubmit } from "../../hooks/handle-survey-submit";
 import useLocalStorage from "../../hooks/use-local-storage";
 
 export const Survey = () => {
-  const [storage, setStorage] = useLocalStorage({});
-  const [isVisible, setIsVisible] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
+  const { storedValue: storage,
+    setValue: setStorage } = useLocalStorage("storage", {});
+  const [isVisible, setIsVisible] = useState<{ error: boolean, success: boolean }>({ error: false, success: false });
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [allReports, setAllReports] = useState([]);
-  const [resp] = useApiResp(data);
-  const [report, setReport] = useSurveyReport(setIsVisible);
+  const { resp } = useApiResp(data);
+  const { report, setReport } = useSurveyReport(setIsVisible);
 
   const handleSubmit = () => {
     handleSurveySubmit(
@@ -39,12 +40,12 @@ export const Survey = () => {
 
   console.log("all reports", allReports);
 
-  return !report.loading && resp.questions ? (
+  return !report.loading && resp.questions?.length > 0 ? (
     <SurveyForm>
       <Title title={resp.label} />
-      {resp.questions.map((e) => (
+      {resp.questions.map((e: any) => (
         <Wrapper key={e.id}>
-          <Question question={e.question} storage={storage} />
+          <Question question={e.question} />
           <Answer
             possible_answers={e.possible_answers}
             question_id={e.id}
@@ -62,16 +63,13 @@ export const Survey = () => {
       <Submit onClick={handleSubmit} />
       {isVisible.error && (
         <ErrorPopup
-          isVisible={isVisible}
           setIsVisible={setIsVisible}
           message={errorMessage}
         />
       )}
       {isVisible.success && (
         <SuccessPopup
-          isVisible={isVisible}
           setIsVisible={setIsVisible}
-          message={errorMessage}
         />
       )}
     </SurveyForm>

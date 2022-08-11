@@ -1,8 +1,8 @@
-interface Props {
-  children: any;
-}
+import React from 'react';
 
-export const SurveyForm = ({ children }: Props) => {
+export const SurveyForm = ({ children }: {
+  children: React.ReactNode[];
+}) => {
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
   };

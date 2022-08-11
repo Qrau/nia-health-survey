@@ -22,7 +22,7 @@ export const Navbar = () => {
   );
 };
 
-const styles = {
+const styles: any = {
   nav: {
     background: colors.blue,
     display: "flex",
