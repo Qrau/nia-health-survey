@@ -1,6 +1,7 @@
 # nia-health-survey
 - **Description:**
     Typescript and React front-end application for filling out a survey for personal health data.
+    tested on OS windows 10 & Node v16.14.0
 ##
 - **Dependencies:**
 ```
@@ -10,6 +11,10 @@
     "react-router-dom": "6.3.0",
     "react-scripts": "4.0.0"
 ```
+##
+- **Installation:**
+    1. install with `yarn install`
+    2. In the project directory, you can run: `yarn start`
 ##
 - **Folders Structure:**
 ```
@@ -23,7 +28,8 @@
 ##
 - **Suggestions for improvments:**
 > 1. move the states variables into a context api or redux to be able to share the states between pages and components.
-> 2. use global styles and theme with a third party package such as "styled-components" for the app.
+> 2. use global styles and themes with a third party package such as "styled-components" for the app.
 > 3. use React hooks and features like (memo, useMemo, useCallback) to improve the app performance.
 > 4. implement SSR and ISR  with nextjs for better perforamnce.
+> 5. create a mock up and sketch for all desired features.
 ##
