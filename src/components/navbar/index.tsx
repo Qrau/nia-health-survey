@@ -1,26 +1,13 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { colors } from "..";
 import niaLogo from "../../assets/nia-logo.png";
 
 const navElements = [
   { label: "Home", path: "/" },
-  { label: "Survey", path: "/survey" }
+  { label: "Survey", path: "/survey" },
+  { label: "Account", path: "/account" }
 ];
-
-export const Navbar = () => {
-  return (
-    <nav style={styles.nav}>
-      <img style={styles.img} src={niaLogo} alt="nia-medtech" />
-      <div>
-        {navElements.map((e, i) => (
-          <Link style={styles.Link} key={i} to={e.path}>
-            {e.label}
-          </Link>
-        ))}
-      </div>
-    </nav>
-  );
-};
 
 const styles: any = {
   nav: {
@@ -39,4 +26,19 @@ const styles: any = {
     textDecoration: "none",
     padding: "0 1em"
   }
+};
+
+export const Navbar = () => {
+  return (
+    <nav style={styles.nav}>
+      <img style={styles.img} src={niaLogo} alt="nia-medtech" />
+      <div>
+        {navElements.map((e, i) => (
+          <Link style={styles.Link} key={i} to={e.path}>
+            {e.label}
+          </Link>
+        ))}
+      </div>
+    </nav>
+  );
 };

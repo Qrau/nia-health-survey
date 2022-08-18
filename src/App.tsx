@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/home";
 import { Survey } from "./pages/survey";
+import { Account } from "./pages/account";
 import { Navbar } from "./components/navbar";
 import "./styles.css";
 import React from "react";
@@ -14,6 +15,7 @@ const routesArray: RouteProp[] = [
   { label: "Error", path: "*", element: <p> not found... </p> },
   { label: "Home", path: "/", element: <Home /> },
   { label: "Survey", path: "/survey", element: <Survey /> },
+  { label: "Account", path: "/account", element: <Account /> }
 ];
 
 export default function App() {
@@ -21,8 +23,8 @@ export default function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        {routesArray.map((e, i) => (
-          <Route key={i} path={e.path} element={e.element} />
+        {routesArray.map(({ path, element }, i) => (
+          <Route key={i} path={path} element={element} />
         ))}
       </Routes>
     </div>
