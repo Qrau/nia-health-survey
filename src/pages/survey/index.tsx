@@ -1,4 +1,5 @@
 import data from "../../resp.json";
+import React from "react";
 import { useState } from "react";
 import { Question } from "../../components/question";
 import { SurveyForm } from "../../components/survey-form";
@@ -17,9 +18,14 @@ import { handleSurveySubmit } from "../../hooks/handle-survey-submit";
 import useLocalStorage from "../../hooks/use-local-storage";
 
 export const Survey = () => {
-  const { storedValue: storage,
-    setValue: setStorage } = useLocalStorage("storage", {});
-  const [isVisible, setIsVisible] = useState<{ error: boolean, success: boolean }>({ error: false, success: false });
+  const { storedValue: storage, setValue: setStorage } = useLocalStorage(
+    "storage",
+    {}
+  );
+  const [isVisible, setIsVisible] = useState<{
+    error: boolean;
+    success: boolean;
+  }>({ error: false, success: false });
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [allReports, setAllReports] = useState([]);
   const { resp } = useApiResp(data);
@@ -49,6 +55,7 @@ export const Survey = () => {
           <Answer
             possible_answers={e.possible_answers}
             question_id={e.id}
+            question_title={e.question}
             storage={storage}
             setStorage={setStorage}
           />
@@ -62,16 +69,9 @@ export const Survey = () => {
       ))}
       <Submit onClick={handleSubmit} />
       {isVisible.error && (
-        <ErrorPopup
-          setIsVisible={setIsVisible}
-          message={errorMessage}
-        />
+        <ErrorPopup setIsVisible={setIsVisible} message={errorMessage} />
       )}
-      {isVisible.success && (
-        <SuccessPopup
-          setIsVisible={setIsVisible}
-        />
-      )}
+      {isVisible.success && <SuccessPopup setIsVisible={setIsVisible} />}
     </SurveyForm>
   ) : (
     <Loader />

@@ -7,4 +7,5 @@ export interface Report {
   answers: Answer[];
   attachments: any;
   username: string;
+  status: string;
 }

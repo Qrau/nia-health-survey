@@ -1,7 +1,9 @@
 import { colors } from "..";
+
 interface Props {
   possible_answers: number[];
   question_id: string;
+  question_title: string;
   storage: any;
   setStorage: any;
 }
@@ -9,16 +11,17 @@ interface Props {
 export const Answer = ({
   possible_answers,
   question_id,
+  question_title,
   storage,
-  setStorage,
+  setStorage
 }: Props) => {
-
   const handleOnChange = (e: any) => {
     setStorage((prevStates: any) => ({
       ...prevStates,
       [question_id]: {
         score: e.target.value,
         question_id: e.target.id,
+        question_title: question_title
       }
     }));
   };
@@ -31,7 +34,7 @@ export const Answer = ({
     <div
       style={{
         ...styles.main,
-        border: `1px solid ${borderColor}`,
+        border: `1px solid ${borderColor}`
       }}
     >
       {possible_answers.map((o: number) => (
@@ -56,9 +59,9 @@ const styles: any = {
     flexWrap: "wrap",
     justifyContent: "center",
     padding: ".5em",
-    borderRadius: "14px",
+    borderRadius: "14px"
   },
   label: {
-    padding: "0 .3em",
-  },
+    padding: "0 .3em"
+  }
 };

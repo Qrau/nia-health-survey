@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { colors } from "..";
+import React from "react";
 
 export const SuccessPopup = ({ setIsVisible }: { setIsVisible: Function }) => {
   const handleClose = () => {
@@ -37,7 +38,7 @@ const styles: any = {
     position: "fixed",
     background: "rgb(255,255,255,0.8)",
     top: 0,
-    justifyContent: "space-evenly",
+    justifyContent: "space-evenly"
   },
   card: {
     display: "flex",
@@ -49,14 +50,14 @@ const styles: any = {
     margin: "auto",
     border: "1px solid #ccc",
     borderRadius: "14px",
-    background: "white",
+    background: "white"
   },
   h2: { padding: "1em" },
   p: { padding: "0 2em" },
   wrapper: {
     display: "flex",
     justifyContent: "space-evenly",
-    marginBottom: "3em",
+    marginBottom: "3em"
   },
   Link: {
     color: "#33FFFF",
@@ -64,7 +65,7 @@ const styles: any = {
     borderRadius: "46px",
     textDecoration: "none",
     fontSize: ".9em",
-    padding: "1em",
+    padding: "1em"
   },
   button: {
     color: "#33FFFF",
@@ -72,6 +73,6 @@ const styles: any = {
     borderRadius: "46px",
     border: "0",
     fontSize: ".9em",
-    padding: "1em",
-  },
+    padding: "1em"
+  }
 };
