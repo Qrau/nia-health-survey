@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { UserCard } from "../../components/user-card";
 import { colors } from "../../components";
+import { useApiResp } from './../../hooks/use-api-resp';
 
 const resp = [
   {
@@ -111,7 +112,7 @@ const resp = [
 
 export const Account = () => {
   const [itemIndex, setItemIndex] = useState<number | null>(null);
-
+  const { resp } = useApiResp();
   const handleClick = (clicked: any) => {
     setItemIndex(clicked);
   };
