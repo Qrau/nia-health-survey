@@ -1,4 +1,3 @@
-import data from "../../resp.json";
 import React from "react";
 import { useState } from "react";
 import { Question } from "../../components/question";
@@ -28,7 +27,7 @@ export const Survey = () => {
   }>({ error: false, success: false });
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [allReports, setAllReports] = useState([]);
-  const { resp } = useApiResp(data);
+  const { resp } = useApiResp();
   const { report, setReport } = useSurveyReport(setIsVisible);
 
   const handleSubmit = () => {
@@ -50,17 +49,17 @@ export const Survey = () => {
     <SurveyForm>
       <Title title={resp.label} />
       {resp.questions.map((e: any) => (
-        <Wrapper key={e.id}>
-          <Question question={e.question} />
+        <Wrapper key={e.question_id}>
+          <Question question={e.question_content} />
           <Answer
-            possible_answers={e.possible_answers}
-            question_id={e.id}
-            question_title={e.question}
+            possible_answers={JSON.parse(e.possible_answer)}
+            question_id={e.question_id}
+            question_title={e.question_content}
             storage={storage}
             setStorage={setStorage}
           />
           <Attachment
-            question_id={e.id}
+            question_id={e.question_id}
             report={report}
             setReport={setReport}
             checkMark={<CheckMark />}

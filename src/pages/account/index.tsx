@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserCard } from "../../components/user-card";
 import { colors } from "../../components";
+
 const resp = [
   {
     id: 1660828769365,
@@ -109,9 +110,10 @@ const resp = [
 ];
 
 export const Account = () => {
-  const [itemIndex, setItemInedx] = useState<number | null>(null);
+  const [itemIndex, setItemIndex] = useState<number | null>(null);
+
   const handleClick = (clicked: any) => {
-    setItemInedx(clicked);
+    setItemIndex(clicked);
   };
   return (
     <div>
@@ -148,7 +150,7 @@ export const Account = () => {
                 <i
                   onClick={(e) => {
                     e.stopPropagation();
-                    setItemInedx(null);
+                    setItemIndex(null);
                   }}
                   style={styles.surveyCard.i}
                 >
