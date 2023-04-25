@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserCard } from "../../components/user-card";
 import { colors } from "../../components";
+import { useApiResp } from './../../hooks/use-api-resp';
+
 const resp = [
   {
     id: 1660828769365,
@@ -109,9 +111,10 @@ const resp = [
 ];
 
 export const Account = () => {
-  const [itemIndex, setItemInedx] = useState<number | null>(null);
+  const [itemIndex, setItemIndex] = useState<number | null>(null);
+  const { resp } = useApiResp();
   const handleClick = (clicked: any) => {
-    setItemInedx(clicked);
+    setItemIndex(clicked);
   };
   return (
     <div>
@@ -148,7 +151,7 @@ export const Account = () => {
                 <i
                   onClick={(e) => {
                     e.stopPropagation();
-                    setItemInedx(null);
+                    setItemIndex(null);
                   }}
                   style={styles.surveyCard.i}
                 >
